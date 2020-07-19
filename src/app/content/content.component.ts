@@ -7,7 +7,12 @@ import { strict } from 'assert';
   styleUrls: ['./content.component.scss']
 })
 export class ContentComponent implements OnInit {
-  columnName = ['a', 'b', 'c', 'd'];
+  columnName = [
+    { name: 'a', type: 'url' },
+    { name: 'b', type: 'text' },
+    { name: 'c', type: 'date' },
+    { name: 'd', type: 'strig' }
+  ]
 
   columnData = [
     {

@@ -8,17 +8,17 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./content-table.component.scss']
 })
 export class ContentTableComponent implements OnInit, OnChanges {
-  @Input() columns: string[];
+  @Input() columns: any;
 
+  displayedColumns: string[];
   _data: MatTableDataSource<any>;
 
   @Input() data: any;
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.data.previousValue === undefined) {
       this._data = new MatTableDataSource(this.data);
+      this.displayedColumns = this.columns.map(c => c.name);
     }
   }
   constructor() { }
